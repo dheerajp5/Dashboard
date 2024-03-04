@@ -1,19 +1,16 @@
 
 import { format } from 'date-fns'
 import Card from '../components/card'
-import { useEffect, useState } from 'react';
-
-function getTime() {
-  const time = new Date();
-  const hours = time.getHours();
-  return `${hours}:${time.getMinutes()}:${time.getSeconds()}`;
-}
-
+import { useState, useEffect } from 'react'
 function Dashboard() {
 
-  // const {currentTime,setC} = useState(getTime());
+  const [currentTime,setCurrentTime] = useState('');
+  const currentDate = format(new Date(), 'dd MM yyyy') 
 
-  // useEffect(()=> setC(getTime()),[1000]);
+  useEffect(() => {
+    setCurrentTime(format(new Date(), 'hh mm ss'))
+    console.log(currentTime);
+  },[currentTime, setCurrentTime])
 
 
     const leaveRequests = [
@@ -31,8 +28,8 @@ function Dashboard() {
     
       const attendance = [
         {
-          title: "12:09:16 hrs",
-          body: '06 feb 2024'
+          title: `${currentTime} hrs`,
+          body: currentDate
         }
       ]
     
@@ -88,22 +85,22 @@ function Dashboard() {
 
 
     return (
-        <div className="grid grid-cols-12 gap-4 mt-8 px-2">
+        <div className="sm:grid grid-cols-12 gap-4 mt-8 px-2">
 
           {/* widgets Section  */}
-          <div className='col-span-12 flex justify-between items-center mt-5 mb-10'>
-              <h2 className='text-2xl font-semibold text-[#00337A]'>Employee <span className='font-normal text-black/40'>Dashboard</span></h2>
+          <div className='col-span-12 sm:flex justify-between items-center mt-5 mb-10'>
+              <h2 className='m-2 sm:m-0 text-2xl font-semibold text-[#00337A]'>Employee <span className='font-normal text-black/40'>Dashboard</span></h2>
 
               <div id='widgets' className='flex gap-2' >
                 <div className='bg-[#DBE5FF] p-2 flex gap-2 items-center'>
                   <img src="/assets/uil_calender.png" alt="" />
-                  <span className='text-sm text-[#404A56]/80'>{format(new Date(), 'dd mm yyyy')}</span>
+                  <span className='text-sm text-[#404A56]/80'>{currentDate}</span>
                 </div>
 
                 <div className='p-2 flex gap-2 items-center bg-[#DBE5FF] '>
                   {/* <div className=''> */}
                   <img src="/assets/mdi_clock-outline.png" alt="" />
-                  <span className='text-sm text-[#404A56]/80'>{getTime()}</span>
+                  <span className='text-sm text-[#404A56]/80'>{currentTime}</span>
                   {/* </div> */}
                   {/* <span className='text-sm text-[#404A56]/80'>Total Login Time</span> */}
                 </div>

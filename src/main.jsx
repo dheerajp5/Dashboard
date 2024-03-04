@@ -4,7 +4,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import App from './App.jsx'
 import ErrorPage from './pages/errorPage.jsx'
-import Dashboard from './pages/dhashboard.jsx';
+import Dashboard from './pages/dashboard.jsx';
 import Holiday from './pages/holiday';
 import TimeTracker from './pages/timeTracker.jsx';
 import './index.css'
