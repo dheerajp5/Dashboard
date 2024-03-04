@@ -74,7 +74,7 @@ function annoucementCardBody(cardBody, index) {
 function timeTrackerCardBody(cardBody) {
     console.log(cardBody);
     return (
-        <div className='flex gap-1 flex-col justify-center items-center border-b p-2 h-[90%]'>
+        <div className='flex gap-1 flex-col justify-center items-center border-b p-2 h-[60%]'>
             {/* <h4 className='text-[#00337A]/80  text-4xl'>{cardBody.title}</h4> */}
             <p className="text-[#26374F]/80 text-base">{cardBody.body}</p>
 

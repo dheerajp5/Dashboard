@@ -85,10 +85,10 @@ function Dashboard() {
 
 
     return (
-        <div className="sm:grid grid-cols-12 gap-4 mt-8 px-2">
+        <div className="sm:grid grid-cols-12 gap-4 px-2">
 
           {/* widgets Section  */}
-          <div className='col-span-12 sm:flex justify-between items-center mt-5 mb-10'>
+          <div className='col-span-12 sm:flex justify-between items-center mt-5 mb-5'>
               <h2 className='m-2 sm:m-0 text-2xl font-semibold text-[#00337A]'>Employee <span className='font-normal text-black/40'>Dashboard</span></h2>
 
               <div id='widgets' className='flex gap-2' >

@@ -60,7 +60,7 @@ function ASideBar() {
             className="hidden sm:block w-72 sm:w-auto sm:relative top-0 left-0 col-span-6 sm:col-span-3 bg-[#17263B] h-[100%]"
         >
             <div className="sm:hidden cursor-pointer absolute top-30 right-0 text-4xl text-white rounded-full bg-red-400">X</div>
-            <nav className="flex flex-col w-full runded-md shadow-lg mt-12">
+            <nav className="flex flex-col w-full runded-md shadow-lg mt-[83px]">
 
                 {/* AsideBar Item */}
                 {

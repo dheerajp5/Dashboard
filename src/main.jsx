@@ -7,6 +7,7 @@ import ErrorPage from './pages/errorPage.jsx'
 import Dashboard from './pages/dashboard.jsx';
 import Holiday from './pages/holiday';
 import TimeTracker from './pages/timeTracker.jsx';
+import Attendance from './pages/atendance.jsx'
 import './index.css'
 
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Dashboard />
+      },
+      {
+        path: '/attendence',
+        element: <Attendance />
       }
     ]
   },
