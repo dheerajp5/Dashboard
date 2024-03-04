@@ -1,8 +1,11 @@
-# React + Vite
+# **## Employee.reactJS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Installation
+To run the project locally do the following steps.
+1.  Clone the project 
+2. Type 'npm install'  to install required packages 
+3.  To run type 'npm run dev'
+4.  go to http://localhost:5173/ 
+5.  Done
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
