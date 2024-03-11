@@ -7,8 +7,9 @@ import ErrorPage from './pages/errorPage.jsx'
 import Dashboard from './pages/dashboard.jsx';
 import Holiday from './pages/holiday';
 import TimeTracker from './pages/timeTracker.jsx';
-import Attendance from './pages/atendance.jsx'
-import './index.css'
+import Attendance from './pages/atendance.jsx';
+import Leave from './pages/leave.jsx';
+import './index.css';
 
 
 
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
       {
         path: '/attendence',
         element: <Attendance />
-      }
+      },
+      {
+        path: '/leave',
+        element: <Leave />
+      },
     ]
   },
   

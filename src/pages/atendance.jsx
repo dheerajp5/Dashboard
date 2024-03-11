@@ -1,5 +1,8 @@
-import { TableHead, TableBody } from "../components/table";
+import { TableHead, AttendanceBody } from "../components/table";
+import DatePicker from "../components/datePicker";
+
 const title = ['Date', 'First Check In', 'Last Check In', 'Time', 'HR Comment', 'Status'];
+
 const attendence = [
     {
         date: '2024-02-01',
@@ -72,16 +75,13 @@ export default function Attendance() {
             </div>
 
             <div className="bg-white rounded-lg shadow-md-4 px-7 pb-4">
-                <form action="" className="sm:flex justify-between">
+                <form action="" className="sm:flex justify-between w-[75%]">
                     <div>
-                        <label className="block text-[#00337A]/80 text-lg font-bold my-2" htmlFor="startDate">Start Date</label>
 
-                        <input id="startDate" className="border-2 w-72 p-1" type="date" name="" />
+                        <DatePicker label='Start Date' />
                     </div>
                     <div>
-                        <label className="block text-[#00337A]/80 text-lg font-bold my-2" htmlFor="endDate">End Date</label>
-
-                        <input id="endDate" className="border-2 w-72 p-1" type="date" />
+                        <DatePicker label='End Date' />
                         <button className="ml-5 w-20 h-10 bg-blue-600 rounded-md text-white text-lg">Apply</button>
                     </div>
                 </form>
@@ -89,7 +89,7 @@ export default function Attendance() {
                 <div className="border rounded-lg mt-4 mb-4  ">
                     <table className="">
                         <TableHead thead={title} />
-                        <TableBody data={attendence} />
+                        <AttendanceBody data={attendence} />
 
                     </table>
                 </div>

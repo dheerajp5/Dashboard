@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react'
 function Dashboard() {
 
   const [currentTime,setCurrentTime] = useState('');
-  const currentDate = format(new Date(), 'dd MM yyyy') 
+  const currentDate = format(new Date(), 'dd LLL yyyy') 
 
   useEffect(() => {
-    setCurrentTime(format(new Date(), 'hh mm ss'))
+    setCurrentTime(format(new Date(), 'hh:mm:ss'))
     console.log(currentTime);
   },[currentTime, setCurrentTime])
 
@@ -85,7 +85,7 @@ function Dashboard() {
 
 
     return (
-        <div className="sm:grid grid-cols-12 gap-4 px-2">
+        <div className="md:grid grid-cols-12 gap-4 px-2">
 
           {/* widgets Section  */}
           <div className='col-span-12 sm:flex justify-between items-center mt-5 mb-5'>
