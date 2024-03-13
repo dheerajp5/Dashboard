@@ -9,6 +9,7 @@ import Holiday from './pages/holiday';
 import TimeTracker from './pages/timeTracker.jsx';
 import Attendance from './pages/atendance.jsx';
 import Leave from './pages/leave.jsx';
+import AddTimeTracker from './pages/addTimeTracker.jsx'
 import './index.css';
 
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/leave',
         element: <Leave />
+      },
+      {
+        path: '/add-timeTracker',
+        element: <AddTimeTracker />
       },
     ]
   },
