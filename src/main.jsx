@@ -10,6 +10,7 @@ import TimeTracker from './pages/timeTracker.jsx';
 import Attendance from './pages/atendance.jsx';
 import Leave from './pages/leave.jsx';
 import AddTimeTracker from './pages/addTimeTracker.jsx'
+import { Add } from './components/miui-Dialog.jsx'
 import './index.css';
 
 
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   {
     path : '/',
     element : <App />,
-    errorElement : <ErrorPage />,
+    // errorElement : <ErrorPage />,
     children : [
       {
         path: '/time-tracker',
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
         element: <Leave />
       },
       {
-        path: '/add-timeTracker',
+        path: '/time-tracker/add',
         element: <AddTimeTracker />
       },
     ]

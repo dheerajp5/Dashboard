@@ -1,6 +1,12 @@
 import { format } from 'date-fns'
+import { useState } from 'react';
+
+import { FormControl, Dialog, DialogActions, DialogContent, DialogTitle, TextField, FormGroup, } from "@mui/material";
 
 export default function AddTimeTracker() {
+
+    const [addProject, setAddProject] = useState(false);
+    const [addJobTitle, setAddJobTitle] = useState(false);
 
     const date = new Date();
     const dateString = format(date, 'yyyy-MM-dd');
@@ -27,7 +33,7 @@ export default function AddTimeTracker() {
         },
     ]
 
-    const a= [1,2];
+
 
     const formfields = [
         {
@@ -59,32 +65,79 @@ export default function AddTimeTracker() {
                 <h2 className="text-2xl font-bold text-[#00337A]/80">Add Time Tracker</h2>
             </div>
 
-            <form onChange={() =>{}} >
-           
+            <FormControl  >
+
                 <div className="bg-white rounded-lg shadow-md-4 px-7 pb-4">
+                    <div  className="grid grid-cols-12 gap-2 pt-4 items-center">
+                        <label className="text-lg  col-span-4" htmlFor="project">Project Name</label>
 
-                    {
-                        a.map((_, index) => {
+                        <select className="py-2 px-2 col-span-6 border-2 " name="" id="project">
+                            {
+                                options.map((option, index) => {
 
-                            return (
-                                <div key={index} className="grid grid-cols-12 gap-2 pt-4 items-center">
-                                    <label className="text-lg  col-span-4" htmlFor="project">Project Name</label>
+                                    return <option key={`${index}-projectName`} value={option.value}>{option.title}</option>
+                                })
+                            }
+                        </select>
+                        <button onClick={() => setAddProject(true)} className="px-2 py-1 bg-[#0DCD95] text-white">+ Add
+                        </button>
+                        <Dialog open={addProject} onClose={() => setAddProject(false)} maxWidth='sm' fullWidth>
+                            <DialogTitle>Add Project Name</DialogTitle>
+                            <DialogContent>
+                                <FormControl fullWidth>
+                                    <TextField
+                                        fullWidth
+                                        placeholder='Select'
+                                        size="small"
+                                        margin="normal"
+                                        label='Project Name'
+                                        type='text'
+                                    />
 
-                                    <select className="py-2 px-2 col-span-6 border-2 " name="" id="project">
-                                        {
-                                            options.map((option, index) => {
+                                </FormControl>
+                                <DialogActions>
+                                    <button onClick={() => setAddProject(false)} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Close</button>
+                                </DialogActions>
+                            </DialogContent>
+                        </Dialog>
 
-                                                return <option key={`${index}-projectName`} value={option.value}>{option.title}</option>
-                                            })
-                                        }
-                                    </select>
-                                    <button className="px-2 py-1 bg-[#0DCD95] text-white">+ Add</button>
+                    </div>
 
-                                </div>
-                            )
+                    <div  className="grid grid-cols-12 gap-2 pt-4 items-center">
+                        <label className="text-lg  col-span-4" htmlFor="project">Job Name</label>
 
-                        })
-                    }
+                        <select className="py-2 px-2 col-span-6 border-2 " name="" id="project">
+                            {
+                                options.map((option, index) => {
+
+                                    return <option key={`${index}-projectName`} value={option.value}>{option.title}</option>
+                                })
+                            }
+                        </select>
+                        <button onClick={() => setAddJobTitle(true)} className="px-2 py-1 bg-[#0DCD95] text-white">+ Add
+                        </button>
+                        <Dialog open={addJobTitle} onClose={() => setAddJobTitle(false)} maxWidth='sm' fullWidth>
+                            <DialogTitle>Add Job Name</DialogTitle>
+                            <DialogContent>
+                                <FormControl fullWidth>
+                                    <TextField
+                                        fullWidth
+                                        placeholder='Select'
+                                        size="small"
+                                        margin="normal"
+                                        label='Job Name'
+                                        type='text'
+                                    />
+
+                                </FormControl>
+                                <DialogActions>
+                                    <button onClick={() => setAddJobTitle(false)} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Close</button>
+                                </DialogActions>
+                            </DialogContent>
+                        </Dialog>
+
+                    </div>
+
 
 
 
@@ -100,14 +153,16 @@ export default function AddTimeTracker() {
                             )
                         })
                     }
-
-
-
-
-
                 </div>
-                <button className="mt-4 px-4 py-2 bg-blue-600 rounded-md text-white">Submit</button>
-            </form>
+                <div>
+
+                    <button className="inline-block mt-4 px-4 py-2 bg-blue-600 rounded-md text-white">Submit</button>
+                </div>
+
+            </FormControl>
         </div>
     )
 }
+
+
+

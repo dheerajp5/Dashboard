@@ -1,5 +1,8 @@
 import { TableHead, AttendanceBody } from "../components/table";
+import { FormControl, Dialog, DialogActions, DialogContent, DialogTitle, TextField, FormGroup } from "@mui/material";
+import { format } from 'date-fns'
 import DatePicker from "../components/datePicker";
+import { useState } from "react";
 
 const title = ['Date', 'First Check In', 'Last Check In', 'Time', 'HR Comment', 'Status'];
 
@@ -66,12 +69,100 @@ const attendence = [
 
 ]
 export default function Attendance() {
+    const date = new Date();
+    const dateString = format(date, 'yyyy-MM-dd');
+    const time =  format(date, 'hh:mm')
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const formFields = [
+        {
+            id: 'Date',
+            type: 'date',
+            lable: 'Date',
+            placeholder: '',
+            value: dateString
+        },
+        {
+            id: 'First Check In',
+            type: 'time',
+            lable: 'First Check In',
+            placeholder: '',
+            value: time
+        },
+        {
+            id: 'Last Check In',
+            type: 'time',
+            lable: 'Last Check In',
+            placeholder: '',
+            value: time
+        },
+        {
+            id: 'time',
+            type: 'time',
+            lable: 'time',
+            placeholder: '',
+            value: time,
+            disabled: true
+        },
+        {
+            id: 'HR Comment',
+            type: 'time',
+            lable: 'HR Comment',
+            placeholder: '',
+            value: time
+        },
+        {
+            id: 'status',
+            type: 'text',
+            lable: 'Status',
+            placeholder: '',
+            value: 'Requested',
+            disabled: true
+        },
+    ]
     return (
 
         <div className="w-full  px-2">
             <div className="flex justify-between items-center my-5 ">
                 <h2 className="text-2xl font-bold text-[#00337A]/80">Attendance</h2>
-                <button className="px-4 py-2 bg-blue-600 rounded-md text-white">Add</button>
+                <>
+            <button onClick={() => setIsDialogOpen(true)} className="px-4 py-2 bg-blue-600 rounded-md text-white">Add</button>
+            <Dialog maxWidth='sm' fullWidth
+                open={isDialogOpen}
+                onClose={() => setIsDialogOpen(false)}
+
+
+            >
+                <DialogTitle >Add Attendance</DialogTitle>
+                <DialogContent fullWidth>
+                    <FormControl fullWidth >
+
+                        {
+                            formFields.map((field, index) => {
+                                return (
+                                    <FormGroup key={field.id + index}>
+                                        <TextField
+                                            id={field.id}
+                                            placeholder={field.placeholder}
+                                            size="small"
+                                            margin="normal"
+                                            label={field.lable}
+                                            disabled={field.disabled || false}
+                                            defaultValue={field.value}
+                                            type={field.type}
+                                        />
+                                    </FormGroup>
+
+                                )
+                            })
+                        }
+
+                        <DialogActions>
+                            <button onClick={() => setIsDialogOpen(false)} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Submit</button>
+                        </DialogActions>
+                    </FormControl>
+                </DialogContent>
+            </Dialog>
+        </>
             </div>
 
             <div className="bg-white rounded-lg shadow-md-4 px-7 pb-4">

@@ -10,7 +10,7 @@ function TimeTracker() {
         <div className="sm:px-4 px-1 py-6">
             <div className="flex justify-between items-center mt-1">
                 <h2 className="text-2xl font-bold text-[#00337A]/80">Time Tracker</h2>
-                <NavLink to="/add-timeTracker" className="px-4 py-2 bg-blue-600 rounded-md text-white">Add</NavLink>
+                <NavLink to="/time-tracker/add" className="px-4 py-2 bg-blue-600 rounded-md text-white">Add</NavLink>
             </div>
 
             <div className="bg-white rounded-lg shadow-md-4 px-7 pb-4">
