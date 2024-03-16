@@ -105,20 +105,26 @@ export default function Attendance() {
         },
         {
             id: 'HR Comment',
-            type: 'time',
+            type: 'text',
             lable: 'HR Comment',
             placeholder: '',
-            value: time
+            value: ''
         },
         {
             id: 'status',
             type: 'text',
             lable: 'Status',
             placeholder: '',
-            value: 'Requested',
+            value: 'Pending',
             disabled: true
         },
     ]
+
+   function onAddHandler(e) {
+        console.log('event',e);
+    }
+
+
     return (
 
         <div className="w-full  px-2">
@@ -157,7 +163,7 @@ export default function Attendance() {
                         }
 
                         <DialogActions>
-                            <button onClick={() => setIsDialogOpen(false)} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Submit</button>
+                            <button onClick={() => {setIsDialogOpen(false); onAddHandler(event)}} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Submit</button>
                         </DialogActions>
                     </FormControl>
                 </DialogContent>

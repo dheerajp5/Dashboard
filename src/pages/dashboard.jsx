@@ -6,10 +6,10 @@ function Dashboard() {
 
   const [currentTime,setCurrentTime] = useState('');
   const currentDate = format(new Date(), 'dd LLL yyyy') 
-
+  const date = new Date();
   useEffect(() => {
-    setCurrentTime(format(new Date(), 'hh:mm:ss'))
-    console.log(currentTime);
+    setCurrentTime(format(date, 'hh:mm:ss'))
+   
   },[currentTime, setCurrentTime])
 
 

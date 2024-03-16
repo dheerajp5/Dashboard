@@ -109,11 +109,11 @@ export function LeaveBody({ data }) {
                         <td className="text-center w-72 py-2 border text-black/60 text-sm font-semibold " >{d.startdate}</td>
                         <td className="text-center w-72 py-2 border text-black/60 text-sm font-semibold " >{d.enddate}</td>
                         <td className="text-center w-72 py-2 border" >
-                            <span  onClick={() => {setIsDialogOpen(true);}} className="cursor-pointer bg-[#638BFF] text-sm py-1 px-4 text-white rounded-sm">View</span>
+                            <span key={`${i}-view`}  onClick={() => {setIsDialogOpen(true);}} className="cursor-pointer bg-[#638BFF] text-sm py-1 px-4 text-white rounded-sm">View</span>
                             <Popup data={d} isDialogOpen={isDialogOpen} setIsDialogOpen={setIsDialogOpen} disabled={true} />
                         </td>
                         <td className="text-center w-72 py-2 border" >
-                            <span onClick={() => setIsEditDialogOPen(true)} className="cursor-pointer bg-[#E1AF09] text-sm py-1 px-4 text-white rounded-sm">Edit</span>
+                            <span  key={`${i}-edit`} onClick={() => setIsEditDialogOPen(true)} className="cursor-pointer bg-[#E1AF09] text-sm py-1 px-4 text-white rounded-sm">Edit</span>
                             <Popup data={d} disabled={false} isDialogOpen={isEditDialogOPen} setIsDialogOpen={setIsEditDialogOPen}  btnLabel="Submit" />
                         </td>
                     </tr>
