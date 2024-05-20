@@ -1,10 +1,11 @@
 
 
-function Navbar() {
+function Navbar( {sethidden}) {
     const leftItems = [
         {
             title: "toggler",
-            icon: '/assets/akar-icons_three-line-horizontal.png'
+            icon: '/assets/akar-icons_three-line-horizontal.png',
+            onclick: () => sethidden((prevState) => !prevState ) 
         }
     ];
 
@@ -29,7 +30,7 @@ function Navbar() {
             <div>
                 {
                     leftItems.map((item, index) => {
-                        return <img className="bg-[#E8EEFD] p-2" key={index} src={item.icon} alt={item.name} />
+                        return <img onClick={item.onclick} className="bg-[#E8EEFD] p-2" key={index} src={item.icon} alt={item.name} />
                     })
                 }
             </div>

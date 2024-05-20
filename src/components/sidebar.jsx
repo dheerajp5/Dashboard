@@ -7,7 +7,7 @@ function navLink ({isActive}) {
     return style;
 }
 
-function ASideBar() {
+function ASideBar({hidden, sethidden}) {
     const sidebarItems = [
         {
             title: 'Dashboard',
@@ -55,11 +55,13 @@ function ASideBar() {
     ]
 
     return (
-        <aside
+        !hidden && <aside
             id="sidebar"
-            className="col-span-3 bg-[#17263B] h-[100%]"
+            className={` z-20 lg:block bg-[#17263B] min-h-screen
+            `}
         >
-            <div className="sm:hidden cursor-pointer absolute top-30 right-0 text-4xl text-white rounded-full bg-red-400">X</div>
+           
+            <div onClick={() => sethidden((prevState) => !prevState)}  className="sm:hidden cursor-pointer absolute top-30 right-0 text-4xl text-white rounded-full bg-red-400">X</div>
             <nav className="flex flex-col w-full runded-md shadow-lg mt-[83px]">
 
                 {/* AsideBar Item */}
@@ -76,6 +78,7 @@ function ASideBar() {
 
             </nav>
         </aside>
+            
     )
 }
 

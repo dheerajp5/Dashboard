@@ -1,7 +1,8 @@
 import { format } from 'date-fns'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { FormControl, Dialog, DialogActions, DialogContent, DialogTitle, TextField, FormGroup, } from "@mui/material";
+import axios from 'axios';
 
 export default function AddTimeTracker() {
 
@@ -11,6 +12,33 @@ export default function AddTimeTracker() {
     const date = new Date();
     const dateString = format(date, 'yyyy-MM-dd');
     const time = format(date, 'hh:mm');
+
+    const [addJobName, setAddJobName] = useState("");
+    const [isAddJobPressed, setIsAddJobPressed] = useState(false);
+    const [message, setMessage] = useState("");
+
+    function add_jobName() {
+        setIsAddJobPressed(false);
+        // setAddJobTitle(false);
+
+        const data = {
+            jobId:  "123347778",
+            jobName: addJobName
+        };
+
+        const url = "https://sr6j52w73j.execute-api.ap-south-1.amazonaws.com/dev/";
+
+        axios.post(url, data)
+        .then((response) => {
+            console.log(response);
+           setMessage(response.data.msg);
+           if(response.statusCode == 200) setAddJobTitle(false);
+        })
+        .catch(err => console.log("error while adding job name ", err));
+       console.log(message);
+    }
+
+    useEffect(add_jobName,[isAddJobPressed]);
 
     const options = [
         {
@@ -96,7 +124,7 @@ export default function AddTimeTracker() {
 
                                 </FormControl>
                                 <DialogActions>
-                                    <button onClick={() => setAddProject(false)} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Close</button>
+                                    <button  className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Submit</button>
                                 </DialogActions>
                             </DialogContent>
                         </Dialog>
@@ -119,6 +147,8 @@ export default function AddTimeTracker() {
                         <Dialog open={addJobTitle} onClose={() => setAddJobTitle(false)} maxWidth='sm' fullWidth>
                             <DialogTitle>Add Job Name</DialogTitle>
                             <DialogContent>
+                                {console.log("message", message) }
+                                {message && <h3>{message}</h3> }
                                 <FormControl fullWidth>
                                     <TextField
                                         fullWidth
@@ -127,11 +157,12 @@ export default function AddTimeTracker() {
                                         margin="normal"
                                         label='Job Name'
                                         type='text'
+                                        onChange={(event)=> setAddJobName(event.target.value)}
                                     />
 
                                 </FormControl>
                                 <DialogActions>
-                                    <button onClick={() => setAddJobTitle(false)} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Close</button>
+                                    <button onClick={() => setIsAddJobPressed(true)} className="px-4 py-2 bg-[#FD7E01] rounded-md text-white">Submit</button>
                                 </DialogActions>
                             </DialogContent>
                         </Dialog>

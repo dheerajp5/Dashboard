@@ -5,6 +5,8 @@ import { format } from 'date-fns'
 export default function AddLeaveDiaglog() {
     const date = new Date();
     const dateString = format(date, 'yyyy-MM-dd');
+
+    
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const formFields = [
         {
