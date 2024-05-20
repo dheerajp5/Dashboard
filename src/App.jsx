@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <section className={clsx("relative lg:grid lg:grid-cols-[300px,_1fr] min-h-[100%]", hidden && "lg:grid-cols-1")}>
+      <section className={clsx("relative lg:grid min-h-[100%]", hidden ? "lg:grid-cols-1": "lg:grid-cols-[300px,_1fr]")}>
      
         <ASideBar hidden= {hidden} sethidden={sethidden} />
         {!hidden && <div className="absolute lg:hidden w-screen h-screen  bg-gradient-to-b "></div>}
